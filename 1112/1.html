@@ -1,0 +1,23 @@
+<html>
+<title>vuejs过滤器的使用</title>
+<script src="../vue.js"></script>
+<body>
+	<div id="app">
+	 	<p>{{message}}</p>
+		<p>{{message | uppercase}}</p>
+		<p>{{message | reverse | uppercase}}</p>
+	</div>
+</body>
+	
+<script type="text/javascript">
+Vue.filter('reverse', function (value) {
+    return value.split('').reverse().join('')
+})
+new Vue({
+  el: '#app',
+  data: {
+      message:'hello vue.js!'
+  }
+})
+</script>
+</html>
