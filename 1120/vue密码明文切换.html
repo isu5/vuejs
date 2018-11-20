@@ -1,0 +1,35 @@
+<html>
+<title>vuejs密码明文切换使用</title>
+<script src="../vue.js"></script>
+<!--阿里图标-->
+<link href="//at.alicdn.com/t/font_921897_5p0higjgurd.css" rel="stylesheet"/>
+<body>
+	<div id="app">
+		<input name="pwd"  :type="pwdType" placeholder="请输入密码">
+	 	<a class="iconfont icon-icon-eye-open" v-if="eye" @click="changeType"></a>
+        <a class="iconfont icon-close-eye" v-else="eye" @click="changeType"></a>
+	</div>
+</body>
+<script type="text/javascript">
+new Vue({
+	el:"#app",
+	data() {
+		return {
+			pwdType: "password", // 密码类型
+			eye: false
+		}
+	},
+	methods: {
+		changeType() {
+			if (this.eye) {
+				this.eye = false
+				this.pwdType = "password"
+			} else {
+				this.eye = true
+				this.pwdType = "text"
+			}
+		},
+	}
+})
+</script>
+</html>
