@@ -1,0 +1,33 @@
+<html>
+<title>过滤器示例</title>
+<script src="../../vue.js"></script>
+
+<body>
+	<div id="app">
+		<p>{{ message }}</p>
+		<p>{{message | toupper}}</p>
+		<p>学习vue.js的进度是{{num}}（{{num | toper}}）</p>
+	</div>
+</body>
+<script type="text/javascript">
+
+//实例化vue对象
+new Vue({
+	el:"#app",
+	data:{
+		message:'hello vue.js world',
+		num:0.3
+	},
+	filters:{
+		toupper:function(value){ //转为大写
+			return value.toUpperCase();
+		
+		},
+		toper:function(value){  //转为百分比
+			return value * 100 + '%';
+		}
+	}
+	
+});
+</script>
+</html>

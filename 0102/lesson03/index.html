@@ -1,0 +1,30 @@
+<html>
+<title>计算属性</title>
+<script src="../../vue.js"></script>
+
+<body>
+	<div id="app">
+		<p>mac pro 价格：{{ price }}円，含税价格{{priceinTax}}円,折合人民币{{rmb}}元</p>
+		
+	</div>
+</body>
+<script type="text/javascript">
+
+//实例化vue对象
+new Vue({
+	el:"#app",
+	data:{
+		price:271990
+	},
+	computed:{
+		priceinTax:function(){
+			return this.price * 1.08;
+		},
+		rmb:function(){
+			return Math.round(this.priceinTax / 16.75);
+		}
+	}
+	
+});
+</script>
+</html>

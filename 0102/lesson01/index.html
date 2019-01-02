@@ -1,0 +1,31 @@
+<html>
+<title>组件示例</title>
+<script src="../../vue.js"></script>
+
+<body>
+	<div id="app">
+		<ol>
+			<game-item v-for="item in games" v-bind:game="item"></game-item>
+		</ol>
+	</div>
+</body>
+<script type="text/javascript">
+/**定义组件 game-item**/
+Vue.component('game-item',{
+	props: ['game'],
+	template: '<li>{{ game.title }}</li>'
+});
+//实例化vue对象
+new Vue({
+	el:"#app",
+	data:{
+		games:[
+			{title:'斗地主'},
+			{title:'斗牛'},
+			{title:'炸金花'}
+		]
+	}
+	
+});
+</script>
+</html>
