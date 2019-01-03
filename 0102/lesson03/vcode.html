@@ -10,16 +10,34 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
     <script src="./summernote-zh-CN.js"></script>
+    <script src="https://cdn.staticfile.org/highlight.js/9.13.1/highlight.min.js"></script>
   </head>
   <body>
-    <div id="summernote"></div>
-    <script>
-      $('#summernote').summernote({
-        placeholder: 'Hello bootstrap 4',
-        tabsize: 2,
-        height: 100,
-		lang: 'zh-CN'
-      });
-    </script>
+    
+	<div id="summernote" style="width:500px"></div>
+<!-- <script>
+	$('#summernote').summernote({
+		height: 300,
+		focus: true,
+		lang: 'zh-CN',//设置语言
+		tabsize: 4,
+		toolbar: [      
+		    ['style', ['style','bold', 'italic', 'underline', 'clear']],
+		    ['fontsize', ['fontsize']],
+		    ['color', ['color']],
+		    ['para', ['ul', 'ol', 'paragraph']],
+		    ['height', ['height']],
+		    ['highlight', ['highlight']],//代码高亮插件
+		    ['insert', ['picture', 'link']], // no insert buttons
+		    ['table', ['table']], // no table button
+		    //['help', ['help']] //no help button		
+	    ]
+	});
+$('#summernote').summernote('code');//获取内容
+</script> -->
+<script>
+$('#summernote').summernote('createLink',{text:'This is the Summernote OfficialSite',  url: 'http://summernote.org',newWindow:true});$('#summernote').summernote('unlink');
+</script>
+
   </body>
 </html>

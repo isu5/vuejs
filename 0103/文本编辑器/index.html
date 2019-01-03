@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>simditor在线编辑器</title>
+	<link media="all" rel="stylesheet" type="text/css" href="assets/styles/app.css" />
+	<link media="all" rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/simditor/2.3.23/styles/simditor.css" />
+
+    <script type="text/javascript" src="assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/scripts/mobilecheck.js"></script>
+    <script type="text/javascript">
+        if(mobilecheck()){
+            $('<link/>', {
+                media: 'all',
+                rel: 'stylesheet',
+                type: 'text/css',
+                href: 'assets/styles/mobile.css'
+            }).appendTo('head')
+        }
+    </script>
+	
+	
+  </head>
+  <body>
+    
+	<section id="page-demo">
+		<textarea id="txt-content" data-autosave="editor-content" autofocus required>
+		
+		</textarea>
+	</section>
+
+	<script type="text/javascript" src="assets/scripts/module.js"></script>
+	<script type="text/javascript" src="assets/scripts/uploader.js"></script>
+	<script type="text/javascript" src="assets/scripts/hotkeys.js"></script>
+	<script type="text/javascript" src="https://cdn.staticfile.org/simditor/2.3.23/lib/simditor.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var $preview, editor, mobileToolbar, toolbar;
+			//Simditor.locale = 'en-US';
+			toolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent', 'alignment'];
+			mobileToolbar = ["bold", "underline", "strikethrough", "color", "ul", "ol"];
+			if (mobilecheck()) {
+			  toolbar = mobileToolbar;
+			}
+			editor = new Simditor({
+			  textarea: $('#txt-content'),
+			  placeholder: '这里输入文字...',
+			  toolbar: toolbar,
+			  pasteImage: true,
+			  defaultImage: 'assets/images/image.png',
+			  upload: location.search === '?upload' ? {
+				url: '/upload'
+			  } : false
+			});
+			$preview = $('#preview');
+			if ($preview.length > 0) {
+			  return editor.on('valuechanged', function(e) {
+				return $preview.html(editor.getValue());
+			  });
+			}
+		  });
+	
+	
+	</script>
+	
+	
+
+
+  </body>
+</html>
