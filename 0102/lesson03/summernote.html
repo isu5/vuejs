@@ -13,55 +13,48 @@
   </head>
   <body>
     
-	<div id="summernote" style="width:500px">{$articleInfo['content']}</div>
+	<div id="summernote" style="width:500px"></div>
 <script>
-	var HelloButton = function (context) {
- 
-		 var ui = $.summernote.ui;
-		 
-		 // create button
-		 
-		 var button = ui.button({
-		 
-		    contents: '<i class="fa fa-home"> Hello</i>',
-		 
-		    tooltip: 'hello',
-		 
-		    click: function () {
-		 
-		      // invokeinsertText method with 'hello' on editor module.
-		 
-		      highlight:['highlight']
-		 
-		    }
-		 
-		 });
-		 
-		 return button.render();  // return button as jquery object
-		 
-	}
+	/**
+ * 保存富文本模板,,,缺少方法， 并没有显示完全
+ */
+$(document).ready(function () {
+    var MyphotoButton = function (context) {
+        var ui = $.summernote.ui;
 
+        // create button
+        var button = ui.button({
+            contents: '<i class="fa fa-child"/>',  //按钮样式
+            tooltip: '图片',
+            click: function () {
+                myfunction(params);//这里是我自己的点出时触发的事件
+            },
+            callback:function(){
+				initfunction(params); //这里的回调函数会在加载页面的时候直接执行
+        }
+        });
 
-	$('#summernote').summernote({
-		height: 300,
-		focus: true,
-		lang: 'zh-CN',//设置语言
-		tabsize: 4,
-		dialogsInBody: true,
-		toolbar: [
-			['insert',['picture']],
-			['mybutton', ['hello']]
-		 
-		 ],
-		 buttons: {
-		 
-			hello: HelloButton
-		 
-		 }
-	
-		
-	
-	});
+        return button.render();    //按钮渲染
+    }
+    $("#summernote").summernote({
+        lang: "zh-CN",
+        height: 300,
+        toolbar: [
+            ['operate', ['undo','redo']],
+            ['magic',['style']],
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['para', ['height','fontsize','ul', 'ol', 'paragraph']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['color', ['color']],
+            ['insert',['myphoto','video','link','table','hr']],//自定义按钮展示
+            ['layout',['codeview']],
+        ],
+        buttons: {
+            myphoto: MyphotoButton      //自已定义的按钮函数
+        },
+    });
+});
+
 	
 
 </script>
