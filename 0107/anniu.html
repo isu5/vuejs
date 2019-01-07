@@ -1,0 +1,48 @@
+<html>
+<title>v-model数据绑定</title>
+<script src="../vue.js"></script>
+
+
+<!--
+v-model
+	为表单控件创建双向数据绑定
+	input[type="radio"]
+-->
+<body>
+	<div id="app">
+		<h1>表单控件绑定</h1>
+		<h2>选择性别</h2>
+		<input type="radio" id="male" value="男" v-model="pickedSex">
+		<label for="male">男</label>
+		<br/>
+		<input type="radio" id="female" value="女" v-model="pickedSex">
+		<label for="female">女</label>
+		<h2>选择爱好</h2>
+		<input type="radio" id="game" value="玩游戏" v-model="pickedHobby">
+		<label for="game">玩游戏</label>
+		<br/>
+		<input type="radio" id="movie" value="看电影" v-model="pickedHobby">
+		<label for="movie">看电影</label>
+		<h2>选择结果</h2>
+		<p>性别：{{pickedSex}}</p>
+		<p>爱好：{{pickedHobby}}</p>
+	</div>
+</body>
+<script type="text/javascript">
+
+//实例化vue对象
+new Vue({
+	el:"#app",
+	data:{
+		pickedSex:"",
+		pickedHobby:"",
+		
+	},
+	methods:{
+		
+	}
+	
+	
+});
+</script>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<title>v-for</title>
+<script src="../vue.js"></script>
+
+
+<!--
+v-show
+	标记是否显示html元素 (注：设置的标记在html DOM不会消失)
+-->
+<body>
+	<div id="app">
+		<ul>
+			<li v-for = "(game ,index) in games">{{index+1}}-{{game.title}} / 售价：[{{game.price}}]</li>
+		</ul>
+		
+	</div>
+</body>
+<script type="text/javascript">
+
+//实例化vue对象
+new Vue({
+	el:"#app",
+	data:{
+		games:[
+			{title:"农药",price:300},
+			{title:"守望者",price:300},
+			{title:"LOL",price:100},
+		]
+	},
+	
+	
+});
+</script>
+</html>

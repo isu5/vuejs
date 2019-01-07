@@ -1,0 +1,46 @@
+<html>
+<title>v-on事件处理器</title>
+<script src="../vue.js"></script>
+
+
+<!--
+v-on
+	页面元素的时间绑定
+-->
+<body>
+	<div id="app">
+		<h1>事件处理器</h1>
+		<input id="txtname" v-on:keyup="txtKeyup($event)">
+		<button id="btnOk" v-on:click="btnClick($event)">ok</button>
+	</div>
+</body>
+<script type="text/javascript">
+
+//实例化vue对象
+new Vue({
+	el:"#app",
+	data:{
+		
+	},
+	methods:{
+		txtKeyup:function(event){
+			this.debugLog(event);
+		},
+		btnClick:function(event){
+			this.debugLog(event);
+		},
+		debugLog:function(event){
+			console.log(
+				event.srcElement.tagName,
+				event.srcElement.id,
+				event.srcElement.innerHTML,
+				event.key?event.key:""
+			);
+		
+		}
+	}
+	
+	
+});
+</script>
+</html>

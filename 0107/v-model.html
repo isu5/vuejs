@@ -1,0 +1,32 @@
+<html>
+<title>v-model数据绑定</title>
+<script src="../vue.js"></script>
+
+
+<!--
+v-model
+	为表单控件创建双向数据绑定
+-->
+<body>
+	<div id="app">
+		<h1>表单控件绑定</h1>
+		<input type="text" v-model="message" placeholder="来呀，打我呀！">
+		<p>输入变化：{{message}}</p>
+	</div>
+</body>
+<script type="text/javascript">
+
+//实例化vue对象
+new Vue({
+	el:"#app",
+	data:{
+		message:"阿里",
+	},
+	methods:{
+		
+	}
+	
+	
+});
+</script>
+</html>

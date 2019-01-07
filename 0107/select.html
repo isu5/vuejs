@@ -1,0 +1,60 @@
+<html>
+<title>v-model数据绑定</title>
+<script src="../vue.js"></script>
+
+
+<!--
+v-model
+	为表单控件创建双向数据绑定
+	select
+-->
+<body>
+	<div id="app">
+		<h1>你选择的学校是</h1>
+		<select v-model="school" style="width:200px">
+			<option>清华大学</option>
+			<option>北京大学</option>
+			<option>中国农业大学</option>
+			<option>中国传媒大学</option>
+			<option>中国</option>
+		</select>
+		<h1>你选择的专业是</h1>
+		<select v-model="cate" style="width:200px">
+			<option>计算机科学与技术</option>
+			<option>会计管理</option>
+			<option>工商管理</option>
+			<option>英语专业</option>
+		</select>
+		<h1>你学习的科目是</h1>
+		<select v-model="article" multiple style="width:200px">
+			<option>英语</option>
+			<option>数学</option>
+			<option>接口</option>
+			<option>电子商务</option>
+		</select>
+		
+		<h2>选择结果</h2>
+		<p>你选择的学校是：{{school}}</p>
+		<p>你选择的专业是：{{cate}}</p>
+		<p>你学习的科目是：{{article}}</p>
+	</div>
+</body>
+<script type="text/javascript">
+
+//实例化vue对象
+new Vue({
+	el:"#app",
+	data:{
+		school:"",
+		cate:"",
+		article:[],
+		
+	},
+	methods:{
+		
+	}
+	
+	
+});
+</script>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<title>if判断</title>
+<script src="../vue.js"></script>
+
+<body>
+	<div id="app">
+		<div v-if="res == 0">成绩未公布</div>
+		<div v-else-if="res < 60">{{res}}分 - 考试不及格</div>
+		<div v-else-if="res < 80">{{res}}分 - 还需努力</div>
+		<div v-else>{{res}}分 - 考的不错，可以玩游戏了</div>
+		<button @click="btnClick">考试成绩</button>
+		
+	</div>
+</body>
+<script type="text/javascript">
+
+//实例化vue对象
+new Vue({
+	el:"#app",
+	data:{
+		res:0
+	},
+	methods:{
+		btnClick:function(){
+			this.res = Math.round(Math.random()*100);
+		}
+	}
+	
+	
+});
+</script>
+</html>
