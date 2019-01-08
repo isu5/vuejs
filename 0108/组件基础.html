@@ -1,0 +1,28 @@
+<html>
+<title>组件</title>
+<script src="../vue.js"></script>
+
+
+<!--
+Component Protlet
+	
+-->
+<body>
+	<div id="app">
+		<today-weather></today-weather>
+		 
+		
+	</div>
+</body>
+<script type="text/javascript">
+Vue.component('today-weather',{
+	template:"<div>今天下雨，出不去了，干什么呢？ 看YouTube吧</div>"
+});
+
+//实例化vue对象
+new Vue({
+	el:"#app",
+	
+});
+</script>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<title>组件的局部注册</title>
+<script src="../vue.js"></script>
+
+
+<!--
+Component Protlet
+可单独注册使用，也可局部注册使用
+	
+-->
+<body>
+	<div id="app">
+		<today-weather></today-weather>
+		 
+		
+	</div>
+</body>
+<script type="text/javascript">
+	var WeatherComponent = {
+		template:"<div>今天天气晴朗，蓝天白云，适合出门运动</div>"
+	};
+
+//实例化vue对象
+new Vue({
+	el:"#app",
+	data:{},
+	components:{
+		'today-weather':WeatherComponent
+	}
+});
+</script>
+</html>

@@ -1,0 +1,59 @@
+<html>
+<title>表单修饰符</title>
+<script src="../vue.js"></script>
+
+
+<!--
+.lazy
+.number
+.trim
+	
+-->
+<body>
+	<div id="app">
+		<div>
+			<label for="username">用户：</label>
+			<input type="text" id="username" v-model.lazy="username" @change="checkUsername" />
+			<span v-if="checkUsernameOk">可注册</span>
+		</div>
+		<div>
+			<label for="age">年龄：</label>
+			<input id="age" v-model.number="age" type="number" />
+		</div>
+		<div>
+			<label for="content">留言</label><br/>
+			<textarea name="" id="content" v-model.trim="content" cols="30" rows="10"></textarea>
+		</div>
+		<h3>显示</h3>
+		<p>{{username}}</p>
+		<p>{{age}}</p>
+		<p>{{content}}</p>
+
+		
+		 
+		
+	</div>
+</body>
+<script type="text/javascript">
+
+//实例化vue对象
+new Vue({
+	el:"#app",
+	data:{
+		username:"",
+		checkUsernameOk:false,
+		age:'',
+		content:''
+		
+	},
+	methods:{
+		checkUsername:function () {
+			if (this.username.length>0) this.checkUsernameOk=true;
+			else this.checkUsernameOk=false;
+			}
+	}
+	
+	
+});
+</script>
+</html>
