@@ -5,7 +5,7 @@
 
 ### 执行安装
 ##### 最新版本确认
-$  `nmp show vue-cli`
+$  `npm show vue-cli`
 
 $  `npm install -g vue-cli@2.9.6`
 
