@@ -38,7 +38,7 @@ export default {
 }
 ```
 
-### 3.如果有wanring报错 问题处理
+### 3.如果有warning报错 问题处理
 
 ##### ESLint：Strings must use single quote
 
